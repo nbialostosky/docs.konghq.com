@@ -1,36 +1,50 @@
 <!-- shared with plugins that use queues: http-log, datadog, statsd, opentelemetry -->
     - name: name
       type: string
-      description: name of the queue
+      description: >
+          Name of the queue, unique across the workspace.
+          If two plugins instances share a queue name, entries will be
+          processed together.
     - name: batch_max_size
       type: number
       default: 1
-      description: maximum number of entries to be given to the handler as a batch"
+      description: Maximum number of entries to be processed together
+          as a batch.
     - name: max_delay
       type: number
       default: 1
-      description: maximum number of (fractional) seconds to elapse after the first entry was queued before the queue starts calling the handler
+      description: >
+          Maximum number of (fractional) seconds to elapse
+          after the first entry was queued before the queue starts
+          processing entries.  This parameter has no effect when
+          `batch_max_size` is 1
     - name: capacity
       type: number
       default: 10000
-      description: maximum number of entries that can be waiting on the queue
+      description: >
+          Maximum number of entries that can be waiting on the queue.
+          Once this number of requests is reached, the oldest entry is
+          deleted from the queue before a new one is added.
     - name: string_capacity
       type: number
       default: nil
-      description: maximum number of bytes that can be waiting on a queue, requires string content
+      description:
+          Maximum number of bytes that can be waiting on a queue. 
+          Once this many bytes are present on a queue, old entries
+          up to the size of a new entry to be enqueued are deleted
+          from the queue.
     - name: max_retry_time
       type: number
       default: 60
-      description: time in seconds before the queue gives up calling a failed handler for a batch
+      description: >
+          Time in seconds before the queue gives up trying to send a
+          batch of entries.  Once this time is exceeded for a batch,
+          it is deleted from the queue without having been sent.
     - name: max_retry_delay
       type: number
       default: 60
-      description: maximum time in seconds between retries, caps exponential backoff"
-    - name: poll_time
-      type: number
-      default: 1
-      description: time in seconds between polls for worker shutdown
-    - name: max_idle_time
-      type: number
-      default: 60
-      description: time in seconds before an idle queue is deleted
+      description: >
+          Maximum time in seconds between retries sending a batch of
+          entries.  The interval between retries follows an
+          exponential back-off algorithm capped at this number of
+          seconds.
