@@ -53,7 +53,7 @@ You should receive a `200` status code.
 
 ### Next steps
 
-Once Kong Gateway is running, you may want to:
+Once {{site.base_gateway}} is running, you may want to:
 
 * [Add your Enterprise license (optional)](/gateway/{{ page.kong_version }}/licenses/deploy).
 * [Enable Kong Manager](/gateway/{{ page.kong_version }}/kong-manager/enable/)
