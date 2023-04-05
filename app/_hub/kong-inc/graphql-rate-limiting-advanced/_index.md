@@ -9,8 +9,6 @@ description: |
 type: plugin
 enterprise: true
 cloud: false
-categories:
-  - traffic-control
 kong_version_compatibility:
   enterprise_edition:
     compatible: true
