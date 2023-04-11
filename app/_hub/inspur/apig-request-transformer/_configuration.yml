@@ -1,4 +1,4 @@
-name: apig-request-transformer
+name: Inspur Request Transformer
 api_id: false
 service_id: true
 consumer_id: false
@@ -46,3 +46,28 @@ config:
     description: List of constant parameters. Set a new header or a new querystring with the given value.
 extra:
   # This is for additional remarks about your configuration.
+publisher: Inspur
+
+categories:
+  - transformations
+
+type: plugin
+
+desc: Kong plugin to transform diversiform requests
+description: |
+
+  Transform the request sent by a client on the fly on Kong, before hitting the upstream server.
+
+  The plugin implements parameter transformations and additions of various positions.
+
+support_url: https://github.com/cheriL/apig-request-transformer/issues
+
+source_code: https://github.com/cheriL/apig-request-transformer
+
+license_type: Apache-2.0
+
+kong_version_compatibility:
+  community_edition:
+    compatible:
+      - 1.2.x
+      - 1.1.x

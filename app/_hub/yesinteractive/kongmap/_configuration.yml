@@ -1,0 +1,33 @@
+name: KongMap
+publisher: Yes Interactive
+
+categories:
+  - deployment
+
+type: integration
+
+desc: Visually Map and Manage your Kong Clusters
+
+description: |
+  Kongmap is a free visualization tool that allows you to view and edit configurations of your Kong API Gateway Clusters, including Routes, Services, and Plugins/Policies. The tool is being offered for installation using Docker and Kubernetes at this time. 
+ 
+support_url: https://github.com/yesinteractive/kong-map/issues
+
+source_code: https://github.com/yesinteractive/kong-map
+
+license_type: AGPL-3.0
+
+kong_version_compatibility:
+    community_edition:
+      compatible:
+        - 2.1.x
+        - 2.0.x
+        - 1.5.x
+        - 1.4.x
+        - 1.3.x
+
+    enterprise_edition:
+      compatible:
+        - 2.1.x
+        - 1.5.x
+        - 1.3-x
